@@ -24,7 +24,7 @@ const Login = () => {
         <Title order={1} size='h2' mb='lg'>
           Login
         </Title>
-        <TextInput withAsterisk label='Username' />
+        <TextInput type='email' withAsterisk label='Email' />
         <PasswordInput withAsterisk my='md' label='Password' />
 
         <Button fullWidth loading={false} my='md' type='submit'>
