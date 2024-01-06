@@ -20,6 +20,36 @@ export const router = createBrowserRouter([
             index: true,
             element: <div>Dashboard</div>,
           },
+          {
+            path: 'videos',
+            children: [
+              {
+                index: true,
+                element: <div>Videos</div>,
+              },
+              {
+                path: ':videoId',
+                element: <div>Video Detail</div>,
+              },
+            ],
+          },
+          {
+            path: 'images',
+            children: [
+              {
+                index: true,
+                element: <div>Images</div>,
+              },
+              {
+                path: ':imageId',
+                element: <div>Image Detail</div>,
+              },
+            ],
+          },
+          {
+            path: 'settings',
+            element: <div>Settings</div>,
+          },
         ],
       },
     ],
