@@ -1,6 +1,6 @@
 import { Box, NavLink } from '@mantine/core';
 import { Link, useLocation } from 'react-router-dom';
-import { NAV_LINKS } from '@/config/constant';
+import { NAV_LINKS } from '@/config/nav-links';
 
 const Sidebar = () => {
   const { pathname } = useLocation();
@@ -14,6 +14,7 @@ const Sidebar = () => {
           to={link.href}
           component={Link}
           active={pathname === link.href}
+          leftSection={<link.icon />}
         />
       ))}
     </Box>
