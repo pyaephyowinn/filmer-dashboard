@@ -2,6 +2,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from '../pages/auth/Login';
 import DashboardLayout from '../components/layouts/DashboardLayout';
 import RootLayout from '../components/layouts/RootLayout';
+import { FilmList, CreateFilm } from '@/pages/films';
+import { PhotosList, CreatePhoto } from '@/pages/photos';
+import { CategoriesList, CreateCategory } from '@/pages/categories';
+import { Settings } from '@/pages/settings';
 
 export const router = createBrowserRouter([
   {
@@ -25,11 +29,11 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <div>Videos</div>,
+                element: <FilmList />,
               },
               {
-                path: ':videoId',
-                element: <div>Video Detail</div>,
+                path: 'new',
+                element: <CreateFilm />,
               },
             ],
           },
@@ -38,21 +42,30 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <div>Images</div>,
+                element: <PhotosList />,
               },
               {
-                path: ':imageId',
-                element: <div>Image Detail</div>,
+                path: 'new',
+                element: <CreatePhoto />,
               },
             ],
           },
           {
             path: 'categories',
-            element: <>Categories</>,
+            children: [
+              {
+                index: true,
+                element: <CategoriesList />,
+              },
+              {
+                path: 'new',
+                element: <CreateCategory />,
+              },
+            ],
           },
           {
             path: 'settings',
-            element: <div>Settings</div>,
+            element: <Settings />,
           },
         ],
       },
