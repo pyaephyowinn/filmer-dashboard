@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             element: <div>Dashboard</div>,
           },
           {
-            path: 'videos',
+            path: 'films',
             children: [
               {
                 index: true,
@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             ],
           },
           {
-            path: 'images',
+            path: 'photos',
             children: [
               {
                 index: true,
@@ -45,6 +45,10 @@ export const router = createBrowserRouter([
                 element: <div>Image Detail</div>,
               },
             ],
+          },
+          {
+            path: 'categories',
+            element: <>Categories</>,
           },
           {
             path: 'settings',

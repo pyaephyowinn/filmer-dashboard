@@ -1,6 +1,7 @@
 import { AppShell, Burger, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Outlet } from 'react-router-dom';
+import Sidebar from '../sidebar/Sidebar';
 
 const DashboardLayout = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -17,7 +18,9 @@ const DashboardLayout = () => {
           <Text>Logo</Text>
         </Group>
       </AppShell.Header>
-      <AppShell.Navbar p='md'>Navbar</AppShell.Navbar>
+      <AppShell.Navbar p='md'>
+        <Sidebar />
+      </AppShell.Navbar>
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
