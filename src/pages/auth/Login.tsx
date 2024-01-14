@@ -7,8 +7,10 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { useUnauthenticatedRoute } from '@/hooks/useAuth';
 
 const Login = () => {
+  useUnauthenticatedRoute();
   return (
     <Center h='100vh'>
       <Paper

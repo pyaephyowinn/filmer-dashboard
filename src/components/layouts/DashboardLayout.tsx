@@ -1,9 +1,11 @@
 import { AppShell, Burger, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Outlet } from 'react-router-dom';
+import { useAuthenticatedRoute } from '@/hooks/useAuth';
 import Sidebar from '../sidebar/Sidebar';
 
 const DashboardLayout = () => {
+  useAuthenticatedRoute();
   const [opened, { toggle }] = useDisclosure();
 
   return (
