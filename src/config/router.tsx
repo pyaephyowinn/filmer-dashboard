@@ -6,6 +6,7 @@ import { FilmList, CreateFilm } from '@/pages/films';
 import { PhotosList, CreatePhoto } from '@/pages/photos';
 import { CategoriesList, CreateCategory } from '@/pages/categories';
 import { Settings } from '@/pages/settings';
+import { DashboardRoute } from './constant';
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/d',
+        path: DashboardRoute,
         element: <DashboardLayout />,
         children: [
           {

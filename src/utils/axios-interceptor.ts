@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useAuth } from '@/store/useAuth';
+import { useAuthStore } from '@/store/useAuth';
 import { API_URL } from '@/config/constant';
 
 export const setupRequestInterceptor = () => {
@@ -10,7 +10,7 @@ export const setupRequestInterceptor = () => {
       request.url = `${API_URL}${request.url}`;
     }
 
-    const token = useAuth.getState().accessToken;
+    const token = useAuthStore.getState().accessToken;
     if (token)
       request.headers = {
         ...request.headers,

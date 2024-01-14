@@ -7,10 +7,27 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { useForm, zodResolver } from '@mantine/form';
 import { useUnauthenticatedRoute } from '@/hooks/useAuth';
+import { loginSchema } from '@/utils/schemas';
+import { useLogin } from './queries';
 
 const Login = () => {
   useUnauthenticatedRoute();
+  const { mutate } = useLogin();
+
+  const form = useForm({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validate: zodResolver(loginSchema),
+  });
+
+  const handleSubmit = () => {
+    mutate(form.values);
+  };
+
   return (
     <Center h='100vh'>
       <Paper
@@ -22,12 +39,23 @@ const Login = () => {
         radius='md'
         shadow='md'
         component='form'
+        onSubmit={form.onSubmit(handleSubmit)}
       >
         <Title order={1} size='h2' mb='lg'>
           Login
         </Title>
-        <TextInput type='email' withAsterisk label='Email' />
-        <PasswordInput withAsterisk my='md' label='Password' />
+        <TextInput
+          type='email'
+          withAsterisk
+          label='Email'
+          {...form.getInputProps('email')}
+        />
+        <PasswordInput
+          withAsterisk
+          my='md'
+          label='Password'
+          {...form.getInputProps('password')}
+        />
 
         <Button fullWidth loading={false} my='md' type='submit'>
           Login

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { useAuth } from '@/store/useAuth';
+import { useAuthStore } from '@/store/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function useAuthenticatedRoute() {
   const navigate = useNavigate();
-  const { accessToken } = useAuth();
+  const { accessToken } = useAuthStore((state) => state);
 
   useEffect(() => {
     if (!accessToken) {
@@ -15,7 +15,7 @@ export function useAuthenticatedRoute() {
 
 export function useUnauthenticatedRoute() {
   const navigate = useNavigate();
-  const { accessToken } = useAuth();
+  const { accessToken } = useAuthStore();
 
   useEffect(() => {
     if (accessToken) {
