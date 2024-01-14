@@ -9,7 +9,7 @@ export function useAppSetup() {
 
   useEffect(() => {
     setupRequestInterceptor();
-    // setupResponseInterceptor();
+    setupResponseInterceptor();
     setInit(true);
   }, []);
 
