@@ -1,13 +1,13 @@
-import { ICategory } from '@/pages/films/types';
+import { ICategory, ICreateFilm } from '@/pages/films/types';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-export const createFilm = async (data: any) => {
+export const createFilm = (
+  data: ICreateFilm
+): Promise<AxiosResponse<any, AxiosError>> => {
   return axios.post('/films', data);
 };
 
-export const getFilms = async (): Promise<
-  AxiosResponse<ICategory[], AxiosError>
-> => {
+export const getFilms = (): Promise<AxiosResponse<ICategory[], AxiosError>> => {
   return axios.get('/films');
 };
 

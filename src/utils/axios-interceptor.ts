@@ -4,7 +4,6 @@ import { API_URL } from '@/config/constant';
 
 export const setupRequestInterceptor = () => {
   axios.interceptors.request.use((config: any) => {
-    console.log('API_URL', API_URL);
     const request = { ...config };
     if (!request.url?.startsWith('http')) {
       request.url = `${API_URL}${request.url}`;
