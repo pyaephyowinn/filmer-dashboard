@@ -1,4 +1,4 @@
-interface IFilm {
+export interface IFilm {
   filmUrl: string;
   categoryId?: string;
 }
@@ -8,6 +8,7 @@ export interface IGetFilm extends IFilm {
 }
 
 export interface ICreateFilm extends IFilm {}
+export interface IUpdateFilm extends Partial<ICreateFilm> {}
 
 export interface ICategory {
   _id: string;

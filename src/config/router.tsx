@@ -2,8 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from '../pages/auth/Login';
 import DashboardLayout from '../components/layouts/DashboardLayout';
 import RootLayout from '../components/layouts/RootLayout';
-import { FilmList, CreateFilm } from '@/pages/films';
-import { PhotosList, CreatePhoto } from '@/pages/photos';
+import { FilmList, CreateFilm, EditFilm } from '@/pages/films';
+import { PhotosList } from '@/pages/photos';
 import { CategoriesList, CreateCategory } from '@/pages/categories';
 import { Settings } from '@/pages/settings';
 import { DashboardRoute } from './constant';
@@ -40,6 +40,10 @@ export const router = createBrowserRouter([
                 path: 'new',
                 element: <CreateFilm />,
               },
+              {
+                path: ':filmId/edit',
+                element: <EditFilm />,
+              },
             ],
           },
           {
@@ -51,7 +55,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'new',
-                element: <CreatePhoto />,
+                element: <EditFilm />,
               },
             ],
           },
