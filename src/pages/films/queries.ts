@@ -1,5 +1,4 @@
-import { categoryKeys, filmKeys } from '@/config/query-keys';
-import { getCategories } from '@/services/category';
+import { filmKeys } from '@/config/query-keys';
 import { getFilms, createFilm } from '@/services/film';
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
@@ -9,14 +8,6 @@ export const useGetFilms = () => {
   return useQuery({
     queryKey: filmKeys.all,
     queryFn: getFilms,
-    select: (data) => data.data,
-  });
-};
-
-export const useGetCategories = () => {
-  return useQuery({
-    queryKey: categoryKeys.all,
-    queryFn: getCategories,
     select: (data) => data.data,
   });
 };

@@ -8,10 +8,11 @@ import {
   Title,
 } from '@mantine/core';
 import { PageLoading } from '@/components/loading';
-import { useCreateFilm, useGetCategories } from './queries';
+import { useCreateFilm } from './queries';
 import { Link } from 'react-router-dom';
 import { useForm, zodResolver } from '@mantine/form';
 import { createFilmSchema } from '@/utils/schemas';
+import { useGetCategories } from '@/pages/categories/queries';
 
 export const CreateFilm = () => {
   const { data: categories, isLoading: isLoadingCategories } =

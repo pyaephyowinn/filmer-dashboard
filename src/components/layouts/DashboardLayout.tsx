@@ -1,4 +1,4 @@
-import { AppShell, Box, Burger, Group, Text } from '@mantine/core';
+import { AppShell, Burger, Card, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Outlet } from 'react-router-dom';
 import { useAuthenticatedRoute } from '@/hooks/useAuth';
@@ -23,10 +23,10 @@ const DashboardLayout = () => {
       <AppShell.Navbar p='md'>
         <Sidebar />
       </AppShell.Navbar>
-      <AppShell.Main>
-        <Box p={24}>
+      <AppShell.Main h='100%' bg='gray.1' display='flex'>
+        <Card bg='white' w='100%'>
           <Outlet />
-        </Box>
+        </Card>
       </AppShell.Main>
     </AppShell>
   );
