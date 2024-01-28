@@ -18,14 +18,13 @@ export const EditFilm = () => {
   };
 
   if (isGetFilmLoading) return <PageLoading />;
-  console.log('initialFilm', initialFilm);
 
   return (
     <Stack gap='lg' maw={600}>
       <Title order={1}>Edit</Title>
       <FilmForm
         values={{
-          categoryId: initialFilm?.categoryId,
+          categoryId: initialFilm?.category?._id || '',
           filmUrl: initialFilm?.filmUrl || '',
         }}
         loading={isCreateFilmPending}

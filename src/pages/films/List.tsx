@@ -19,7 +19,13 @@ export const FilmList = () => {
       </Group>
       <Stack>
         {categories?.map((category) => {
-          if (category.films.length === 0) return null;
+          console.log('category', category.films);
+          const validFilms = category.films.filter(
+            (film) =>
+              // film.filmUrl.startsWith('https://')
+              film
+          );
+          if (validFilms.length === 0) return null;
 
           return (
             <Fragment key={category._id}>
@@ -39,7 +45,7 @@ export const FilmList = () => {
                     gap: '2px',
                   }}
                 >
-                  {category.films.map((film) => (
+                  {validFilms.map((film) => (
                     <Film key={film.id} film={film} />
                   ))}
                 </Box>

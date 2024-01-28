@@ -29,7 +29,7 @@ export const updateFilm = ({
   id: string;
   film: IUpdateFilm;
 }): Promise<AxiosResponse<any, AxiosError>> => {
-  return axios.post(`/films/${id}`, film);
+  return axios.patch(`/films/${id}`, film);
 };
 
 export const deleteFilm = async (id: string) => {

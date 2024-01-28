@@ -1,15 +1,34 @@
-import { ActionIcon, Box, Menu } from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { IconDots } from '@tabler/icons-react';
+import { ActionIcon, Box, Menu, Text } from '@mantine/core';
+import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
 import { IGetFilm } from '../types';
-import { IconDots } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
+import { useDeleteFilm } from '../queries';
 
 type FilmProps = {
   film: IGetFilm;
 };
 
 export const Film = ({ film }: FilmProps) => {
-  if (!film.filmUrl.startsWith('https://')) return null;
+  const { mutate, isPending } = useDeleteFilm();
+
+  const openModal = () =>
+    modals.openConfirmModal({
+      title: 'Are you sure?',
+      centered: true,
+      children: (
+        <Text size='sm'>Are you sure you want to delete the film?</Text>
+      ),
+      labels: { confirm: 'Confirm', cancel: 'Cancel' },
+      confirmProps: {
+        color: 'red',
+      },
+      onConfirm: () => {
+        mutate(film.id);
+      },
+    });
+
   return (
     <Box pos='relative'>
       <ReactPlayer light width={350} height={200} url={film.filmUrl} />
@@ -17,6 +36,7 @@ export const Film = ({ film }: FilmProps) => {
       <Menu>
         <Menu.Target>
           <ActionIcon
+            loading={isPending}
             size={32}
             style={{
               position: 'absolute',
@@ -34,7 +54,9 @@ export const Film = ({ film }: FilmProps) => {
           <Menu.Item component={Link} to={`${film.id}/edit`}>
             Edit
           </Menu.Item>
-          <Menu.Item color='red'>Delete</Menu.Item>
+          <Menu.Item color='red' onClick={openModal}>
+            Delete
+          </Menu.Item>
         </Menu.Dropdown>
       </Menu>
     </Box>

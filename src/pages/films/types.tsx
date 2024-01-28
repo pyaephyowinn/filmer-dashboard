@@ -1,6 +1,7 @@
 export interface IFilm {
   filmUrl: string;
   categoryId?: string;
+  category?: ICategory;
 }
 
 export interface IGetFilm extends IFilm {
