@@ -8,3 +8,9 @@ export type UserResponse = {
   email: string;
   token: string;
 };
+
+export type ChangePassword = {
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
+};
