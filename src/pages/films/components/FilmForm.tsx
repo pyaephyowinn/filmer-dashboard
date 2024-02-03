@@ -1,9 +1,10 @@
 import { Button, Group, Paper, Select, TextInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { useForm, zodResolver } from '@mantine/form';
 import { Link } from 'react-router-dom';
 import { useGetCategories } from '@/pages/categories/queries';
 import { PageLoading } from '@/components/loading';
 import { IFilm } from '../types';
+import { createFilmSchema } from '@/utils/schemas';
 
 interface FilmFormProps {
   values: IFilm;
@@ -20,6 +21,7 @@ export const FilmForm = ({
 }: FilmFormProps) => {
   const form = useForm({
     initialValues: values,
+    validate: zodResolver(createFilmSchema),
   });
 
   const { data: categories, isLoading: isLoadingCategories } =
