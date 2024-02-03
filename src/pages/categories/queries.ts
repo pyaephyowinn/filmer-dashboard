@@ -3,7 +3,6 @@ import { categoryKeys } from '@/config/query-keys';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { getCategories, createCategory } from '@/services/category';
-import { ICategory } from './types';
 
 export const useGetCategories = () => {
   return useQuery({

@@ -1,4 +1,3 @@
-import { ICategory } from '@/pages/categories/types';
 import { ICategoryWithNoFilms } from '@/types/common';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
