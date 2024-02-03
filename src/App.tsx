@@ -7,6 +7,8 @@ import { router } from './config/router';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 
+// TODO: fix types
+
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {

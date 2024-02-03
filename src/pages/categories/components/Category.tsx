@@ -29,9 +29,9 @@ const Category = ({ category }: CategoryProps) => {
       <Card.Section>
         <Image
           src={category.image}
-          fallbackSrc='https://placehold.co/600x400?text=No Image'
+          fallbackSrc='https://placehold.co/400x200/webp?text=No Image'
           height={160}
-          alt='Norway'
+          alt={category.name}
         />
       </Card.Section>
 

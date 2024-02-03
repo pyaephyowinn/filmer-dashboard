@@ -6,8 +6,14 @@ export const loginSchema = z.object({
 });
 
 export const createFilmSchema = z.object({
-  filmUrl: z.string(),
+  filmUrl: z.string().min(1, 'Film url is required'),
   categoryId: z.string().optional(),
+});
+
+export const createCategorySchema = z.object({
+  name: z.string().min(4, 'Name must be at least 4 characters long'),
+  description: z.string(),
+  imageFile: z.any().optional(),
 });
 
 export const changePasswordSchema = z.object({
