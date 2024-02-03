@@ -5,6 +5,7 @@ import RootLayout from '../components/layouts/RootLayout';
 import { FilmList, CreateFilm, EditFilm } from '@/pages/films';
 import { PhotosList } from '@/pages/photos';
 import { CategoriesList, CreateCategory } from '@/pages/categories';
+import EditCategory from '@/pages/categories/Edit';
 import { Settings } from '@/pages/settings';
 import { DashboardRoute } from './constant';
 
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
               {
                 path: 'new',
                 element: <CreateCategory />,
+              },
+              {
+                path: ':categoryId/edit',
+                element: <EditCategory />,
               },
             ],
           },

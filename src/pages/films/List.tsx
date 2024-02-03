@@ -3,9 +3,12 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Film } from './components/Film';
 import { useGetFilms } from './queries';
+import { PageLoading } from '@/components/loading';
 
 export const FilmList = () => {
-  const { data: categories } = useGetFilms();
+  const { data: categories, isLoading } = useGetFilms();
+
+  if (isLoading) return <PageLoading />;
 
   return (
     <div>
@@ -19,11 +22,8 @@ export const FilmList = () => {
       </Group>
       <Stack>
         {categories?.map((category) => {
-          console.log('category', category.films);
-          const validFilms = category.films.filter(
-            (film) =>
-              // film.filmUrl.startsWith('https://')
-              film
+          const validFilms = category.films.filter((film) =>
+            film.filmUrl.startsWith('https://')
           );
           if (validFilms.length === 0) return null;
 
