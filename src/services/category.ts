@@ -28,3 +28,7 @@ export const updateCategory = ({
 }): Promise<AxiosResponse<any, AxiosError>> => {
   return axios.patch(`/categories/${id}`, data);
 };
+
+export const deleteCategory = async (id: string) => {
+  return axios.delete(`/categories/${id}`);
+};

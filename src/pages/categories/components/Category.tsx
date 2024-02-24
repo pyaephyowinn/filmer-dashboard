@@ -2,12 +2,15 @@ import { Button, Card, Group, Image, Text } from '@mantine/core';
 import { ICategory } from '../types';
 import { Link } from 'react-router-dom';
 import { modals } from '@mantine/modals';
+import { useDeleteCategory } from '../queries';
 
 type CategoryProps = {
   category: ICategory;
 };
 
 const Category = ({ category }: CategoryProps) => {
+  const { mutate, isPending } = useDeleteCategory();
+
   const openModal = () =>
     modals.openConfirmModal({
       title: 'Are you sure?',
@@ -20,7 +23,7 @@ const Category = ({ category }: CategoryProps) => {
         color: 'red',
       },
       onConfirm: () => {
-        console.log('confirm');
+        mutate(category._id as string);
       },
     });
 
@@ -47,7 +50,7 @@ const Category = ({ category }: CategoryProps) => {
         <Button w={80} component={Link} to={`${category._id}/edit`}>
           Edit
         </Button>
-        <Button w={80} color='red' onClick={openModal}>
+        <Button loading={isPending} w={80} color='red' onClick={openModal}>
           Delete
         </Button>
       </Group>

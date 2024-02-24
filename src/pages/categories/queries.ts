@@ -7,6 +7,7 @@ import {
   createCategory,
   getCategory,
   updateCategory,
+  deleteCategory,
 } from '@/services/category';
 
 export const useGetCategories = () => {
@@ -60,6 +61,22 @@ export const useUpdateCategory = () => {
       navigate('/d/categories');
       showNotification({
         message: 'Category updated successfully',
+      });
+    },
+  });
+};
+
+export const useDeleteCategory = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (id: string) => deleteCategory(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: categoryKeys.lists(),
+      });
+      showNotification({
+        message: 'Category deleted successfully',
       });
     },
   });
