@@ -1,30 +1,103 @@
-# React + TypeScript + Vite
+# Filmer Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+First, install dependencies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+    pnpm install
 
-## Expanding the ESLint configuration
+    or
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+    npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+And run the development server:
+
+```
+    pn dev
+    or
+    npm run dev
+```
+
+## Features
+
+1. **Video Upload**
+   Easily upload individual contracts.
+
+2. **Image Upload**
+   Uploaded contracts can be searched and other contracts (e.g, initial data uploaded from the sftp client gui like filezilla) can be done within three levels of nested folders.
+
+## Structure
+
+```
+App
+└── src
+    ├── assets
+    │   ├── styles
+    │   ├── images
+    ├── components
+    │   ├── common          (common component dir)
+    │   ├── core            (core component dir)
+    │   ├── layout          (layout component dir)
+    │   ├── loading         (loading dir)
+    │   ├── page            (pages <403, 404, etc.,> dir)
+    │   └── sidebar         (app sidebar component)
+    ├── config
+    │   ├── const           (constants)
+    │   ├── nav-links       (app menus json)
+    │   ├── query-keys      (react query keys)
+    │   ├── router          (app routes router)
+    │   └── theme           (mantine theme configs)
+    ├── hooks               (custom hooks)
+    ├── layouts             (layout components)
+    ├── pages
+    │   ├── home
+    │   ├── crud
+    │   │   ├── list
+    │   │   ├── form
+    │   │   │   ├── create
+    │   │   │   └── edit
+    │   │   └── detail
+    │   └── settings
+    ├── services            (api services)
+    ├── store               (global state)
+    └── utils               (shared functions dir)
+```
+
+## Pull Request
+
+Prefix for your pull requests.
+
+- feat: A new feature
+- fix: A bug fix
+- chore: Other changes that don't modify src
+- refactor: A code change that neither fixes a bug nor adds a feature
+
+## Testing
+
+```
+    npm test
+```
+
+Tests with UI
+
+```
+    npm test:ui
+```
+
+Code coverage
+
+```
+    npm test:cov
+```
+
+Use [Playwright](https://playwright.dev) for e2e tests. Install [vscode ext](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
+
+```
+    npm test:e2e
+```
+
+## Additional Resources
+
+- [Effective Query Keys](https://tkdodo.eu/blog/effective-react-query-keys)
