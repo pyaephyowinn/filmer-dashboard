@@ -25,10 +25,7 @@ And run the development server:
 ## Features
 
 1. **Video Upload**
-   Easily upload individual contracts.
-
 2. **Image Upload**
-   Uploaded contracts can be searched and other contracts (e.g, initial data uploaded from the sftp client gui like filezilla) can be done within three levels of nested folders.
 
 ## Structure
 
