@@ -15,8 +15,10 @@ First, install dependencies:
 And run the development server:
 
 ```
-    pn dev
+    pnpm dev
+
     or
+
     npm run dev
 ```
 
