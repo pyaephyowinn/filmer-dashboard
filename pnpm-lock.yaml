@@ -8,6 +8,9 @@ dependencies:
   '@mantine/core':
     specifier: ^7.5.0
     version: 7.5.0(@mantine/hooks@7.5.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+  '@mantine/dropzone':
+    specifier: ^7.6.2
+    version: 7.6.2(@mantine/core@7.5.0)(@mantine/hooks@7.5.0)(react-dom@18.2.0)(react@18.2.0)
   '@mantine/form':
     specifier: ^7.5.0
     version: 7.5.0(react@18.2.0)
@@ -704,6 +707,21 @@ packages:
       type-fest: 3.13.1
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /@mantine/dropzone@7.6.2(@mantine/core@7.5.0)(@mantine/hooks@7.5.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xhbUKWGzLkZfZu5rEqUQsVhLvfEkDtR8zxyCnMI9UgXcJ+xbzk9aqfwTd4c3+MogqINv5EHlyTcJR1SXGN592w==}
+    peerDependencies:
+      '@mantine/core': 7.6.2
+      '@mantine/hooks': 7.6.2
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@mantine/core': 7.5.0(@mantine/hooks@7.5.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/hooks': 7.5.0(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-dropzone-esm: 15.0.1(react@18.2.0)
     dev: false
 
   /@mantine/form@7.5.0(react@18.2.0):
@@ -2748,6 +2766,16 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-dropzone-esm@15.0.1(react@18.2.0):
+    resolution: {integrity: sha512-RdeGpqwHnoV/IlDFpQji7t7pTtlC2O1i/Br0LWkRZ9hYtLyce814S71h5NolnCZXsIN5wrZId6+8eQj2EBnEzg==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-fast-compare@3.2.2:
